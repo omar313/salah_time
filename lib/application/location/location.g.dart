@@ -1,26 +1,11 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'location_service_provider.dart';
+part of 'location.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$locationServiceHash() => r'533e3e3c46e2028d38cef22a3cdbdf4778bf5303';
-
-/// See also [locationService].
-@ProviderFor(locationService)
-final locationServiceProvider = AutoDisposeProvider<LocationService>.internal(
-  locationService,
-  name: r'locationServiceProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$locationServiceHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-typedef LocationServiceRef = AutoDisposeProviderRef<LocationService>;
 String _$locationHash() => r'c04b2f3bdc5df134dc6ec316f18263570af0bd00';
 
 /// See also [Location].
