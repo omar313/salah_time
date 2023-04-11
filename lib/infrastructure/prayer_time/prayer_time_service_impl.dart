@@ -5,13 +5,27 @@ import 'package:salah_time/domain/prayer_time/prayer_time_failures.dart';
 import 'package:salah_time/domain/prayer_time/prayer_time_model.dart';
 import 'package:salah_time/infrastructure/prayer_time/data_source/i_prayer_time_repo.dart';
 
-class PrayerTimeServiceImpl implements PrayerTimeService{
+class PrayerTimeServiceImpl implements PrayerTimeService {
   final PrayerTimeLiveDataSource liveDataSource;
+  final PrayerTimeCacheDataSource cacheDataSource;
 
-  PrayerTimeServiceImpl({required this.liveDataSource});
+  PrayerTimeServiceImpl(
+      {required this.liveDataSource, required this.cacheDataSource});
+
   @override
-  Either<PrayerTimeFailures, List<AppPrayerTime>> getPrayerTimes(AppLocation location) {
-    return liveDataSource.getPrayerTimes(location);
+  Future<Either<PrayerTimeFailures, List<AppPrayerTime>>> getPrayerTimes(
+      AppLocation? location) async {
+    final localData = await cacheDataSource.getPrayerTimes();
+    return localData.fold((l) {
+      if(location == null) {
+        return left(const PrayerTimeFailures.invalidCoordinates());
+      }
+      final liveData = liveDataSource.getPrayerTimes(location);
+    return  liveData.fold((l) => left(l), (r) {
+        cacheDataSource.cachePrayerTimes(r);
+        return right(r);
+      });
+    }, (r) => right(r));
   }
 
 }

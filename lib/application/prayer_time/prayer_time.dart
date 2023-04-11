@@ -9,11 +9,10 @@ import 'package:dartz/dartz.dart';
 part 'prayer_time.g.dart';
 
 @riverpod
-Either<PrayerTimeFailures, List<AppPrayerTime>> prayerTime(PrayerTimeRef ref) {
+Future<Either<PrayerTimeFailures, List<AppPrayerTime>>> prayerTime(PrayerTimeRef ref) async {
+
   final location =
       ref.watch(locationProvider).value?.fold((l) => null, (r) => r);
-  if (location == null) {
-    return left(const PrayerTimeFailures.invalidCoordinates());
-  }
-  return ref.watch(prayerTimeServiceProvider).getPrayerTimes(location);
+
+  return await ref.watch(prayerTimeServiceProvider).getPrayerTimes(location);
 }

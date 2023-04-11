@@ -43,7 +43,41 @@ final prayerTimeLiveDataSourceProvider =
 
 typedef PrayerTimeLiveDataSourceRef
     = AutoDisposeProviderRef<PrayerTimeLiveDataSource>;
-String _$prayerTimeServiceHash() => r'd8cc555110e1f1fce1d41aaa3629743b8bfae1df';
+String _$prayerTimeHiveRepositoryHash() =>
+    r'267b29ca46946f832f1177843f2b5e316709ac74';
+
+/// See also [prayerTimeHiveRepository].
+@ProviderFor(prayerTimeHiveRepository)
+final prayerTimeHiveRepositoryProvider =
+    Provider<PrayerTimeHiveRepository>.internal(
+  prayerTimeHiveRepository,
+  name: r'prayerTimeHiveRepositoryProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$prayerTimeHiveRepositoryHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef PrayerTimeHiveRepositoryRef = ProviderRef<PrayerTimeHiveRepository>;
+String _$prayerTimeCacheDataSourceHash() =>
+    r'6277351beb3fe3ee0ed5deef6fd96c9f40dc49ea';
+
+/// See also [prayerTimeCacheDataSource].
+@ProviderFor(prayerTimeCacheDataSource)
+final prayerTimeCacheDataSourceProvider =
+    Provider<PrayerTimeCacheDataSource>.internal(
+  prayerTimeCacheDataSource,
+  name: r'prayerTimeCacheDataSourceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$prayerTimeCacheDataSourceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef PrayerTimeCacheDataSourceRef = ProviderRef<PrayerTimeCacheDataSource>;
+String _$prayerTimeServiceHash() => r'fec2d54f94067f34c24a7d7bd3bfd83f93d8cf36';
 
 /// See also [prayerTimeService].
 @ProviderFor(prayerTimeService)

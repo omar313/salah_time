@@ -16,8 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AppPrayerTime {
+  @HiveField(0)
   String get prayerName => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get startTime => throw _privateConstructorUsedError;
+  @HiveField(2)
   String get endTime => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +34,10 @@ abstract class $AppPrayerTimeCopyWith<$Res> {
           AppPrayerTime value, $Res Function(AppPrayerTime) then) =
       _$AppPrayerTimeCopyWithImpl<$Res, AppPrayerTime>;
   @useResult
-  $Res call({String prayerName, String startTime, String endTime});
+  $Res call(
+      {@HiveField(0) String prayerName,
+      @HiveField(1) String startTime,
+      @HiveField(2) String endTime});
 }
 
 /// @nodoc
@@ -76,7 +82,10 @@ abstract class _$$_AppPrayerTimeCopyWith<$Res>
       __$$_AppPrayerTimeCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String prayerName, String startTime, String endTime});
+  $Res call(
+      {@HiveField(0) String prayerName,
+      @HiveField(1) String startTime,
+      @HiveField(2) String endTime});
 }
 
 /// @nodoc
@@ -113,17 +122,21 @@ class __$$_AppPrayerTimeCopyWithImpl<$Res>
 
 /// @nodoc
 
+@HiveType(typeId: 1)
 class _$_AppPrayerTime implements _AppPrayerTime {
   const _$_AppPrayerTime(
-      {required this.prayerName,
-      required this.startTime,
-      required this.endTime});
+      {@HiveField(0) required this.prayerName,
+      @HiveField(1) required this.startTime,
+      @HiveField(2) required this.endTime});
 
   @override
+  @HiveField(0)
   final String prayerName;
   @override
+  @HiveField(1)
   final String startTime;
   @override
+  @HiveField(2)
   final String endTime;
 
   @override
@@ -155,15 +168,18 @@ class _$_AppPrayerTime implements _AppPrayerTime {
 
 abstract class _AppPrayerTime implements AppPrayerTime {
   const factory _AppPrayerTime(
-      {required final String prayerName,
-      required final String startTime,
-      required final String endTime}) = _$_AppPrayerTime;
+      {@HiveField(0) required final String prayerName,
+      @HiveField(1) required final String startTime,
+      @HiveField(2) required final String endTime}) = _$_AppPrayerTime;
 
   @override
+  @HiveField(0)
   String get prayerName;
   @override
+  @HiveField(1)
   String get startTime;
   @override
+  @HiveField(2)
   String get endTime;
   @override
   @JsonKey(ignore: true)

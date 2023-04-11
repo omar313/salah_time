@@ -10,7 +10,8 @@ abstract class PrayerTimeLiveDataSource {
 }
 
 abstract class PrayerTimeCacheDataSource {
-  Either<PrayerTimeFailures, List<AppPrayerTime>> getPrayerTimes();
+  Future<Either<PrayerTimeFailures, List<AppPrayerTime>>> getPrayerTimes();
 
   void cachePrayerTimes(List<AppPrayerTime> times);
+
 }
