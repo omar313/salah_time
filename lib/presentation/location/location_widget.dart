@@ -20,10 +20,13 @@ class LocationWidget extends ConsumerWidget {
                           'Location permissions are permanently denied, we cannot request permissions.'),
                   style: const TextStyle(color: Colors.red),
                 ),
-            (r) => Text(
-                  'latitude: ${r.lat} Longitude: ${r.long}',
-                  style: const TextStyle(color: Colors.black),
-                )),
+            (r) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                    'latitude: ${r.lat} Longitude: ${r.long}',
+                    style: const TextStyle(color: Colors.black),
+                  ),
+            )),
         error: (_, __) => Container(),
         loading: () => const CircularProgressIndicator());
   }

@@ -8,8 +8,7 @@ import 'domain/prayer_time/prayer_time_model.dart';
 
 Future<void> main()  async{
    WidgetsFlutterBinding.ensureInitialized();
-
-  final appDocumentDirectory = await getApplicationDocumentsDirectory();
+   final appDocumentDirectory = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDirectory.path);
   runApp(const ProviderScope(child: MyApp()));
 }
@@ -21,7 +20,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Salah Time',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
